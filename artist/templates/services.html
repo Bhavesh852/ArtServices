@@ -1,0 +1,122 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block css %}
+    <style>
+        /* The alert message box */
+        .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+          width: 100%;
+          margin: auto;
+          opacity: 1;
+          transition: opacity 0.6s;
+          margin-bottom: 15px;
+        }
+
+        .alert.success {background-color: #4CAF50;}
+        .alert.info {background-color: #2196F3;}
+        .alert.warning {background-color: #ff9800;}
+
+        .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+        .closebtn:hover {
+          color: black;
+        }
+
+        #delbtn{
+            /*top: 0;*/
+            margin-left: 90%;
+            color: white;
+            background-color: red;
+
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+	<!-- banner 2 -->
+	<div class="banner2-w3ls">
+		
+	</div>
+	<!-- //banner 2 -->
+	<!-- page details -->
+	{% if yes == "yes" %}
+		<div class="alert danger">
+	        <span class="closebtn">&times;</span>  
+	      	<strong>{{ss.a_name}} :</strong> {{msg}}
+	   	</div>
+   	{% endif %}
+	<div class="breadcrumb-agile">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/">Home</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Gallery</li>
+			</ol>
+		</nav>
+	</div>
+	<!-- //page details -->
+
+	<!-- contact -->
+	
+	<!-- //gallery -->
+<section class="news-w3ls py-5">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="row">
+				<div class="col-lg-5 agileits_works-grid">
+					<h3 class="tittle mb-xl-5 mb-4 text-dark text-uppercase font-weight-bold pl-4 py-3">OUR SERVICES</h3>
+				</div>
+				<div class="col-lg-7 para-right-title">
+					<p class="py-3"> 
+					</p>
+				</div>
+			</div>
+
+			<div class="row package-grids mt-5">
+				{% for i in service %}
+				<div class="col-md-4 posts-w3ls my-4">
+					<div class="card shadow" style="height: 110vh;">
+					  <img src="{{ i.s_image.url }}" class="card-img-top" style="height: 40vh;">
+					  <div class="card-body text-center">
+					    <h5 class="card-title">{{i.service}}</h5>
+					    <p class="card-text">{{ i.description }}</p>
+					    
+					  </div>
+					  <div class="card-footer text-center">
+					  	<a href="/subservice/{{i.service}}/" class="btn btn-primary">BOOK NOW</a>
+					  </div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{% block js %}
+    <script>
+       var close = document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+    </script>
+
+{% endblock %}

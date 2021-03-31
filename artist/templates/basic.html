@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+	<title>Nearby services and artist finder</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Cleaning Services Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+
+	<!-- Custom-Files -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="{% static 'css/progresscircle.css' %}">
+	<!-- progress -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="{% static 'css/fontawesome-all.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //Custom-Files -->
+
+	<!-- Web-Fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+	    rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
+	    rel="stylesheet">
+	<!-- //Web-Fonts -->
+	{% block css %}{% endblock %}
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light py-0">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img src="{% static 'images/logo3.png' %}" alt="" class="img-fluid">
+				</a>
+				<button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+					<ul class="navbar-nav ml-auto text-center">
+						<li class="nav-item active">
+							<a class="nav-link" href="/">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/services/">Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/about/">About Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/contact/">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- //header -->
+
+	{% block body %}
+	{% endblock %}
+
+	<!-- footer -->
+	<footer class="py-4">
+		<div class="container py-xl-5 py-lg-3">
+			
+			<div class="row">
+				<div class="col-md-8 copy">
+					<p class="mt-md-5 pt-md-4">Nearby services and artist finder | Developed by
+						<a href=""> </a>
+					</p>
+				</div>
+				<div class="col-md-4 logo-2 text-md-right text-center">
+					<a class="logo-footer" href="index.html">
+						<img src="{% static 'images/logo3.png' %}" alt="" class="img-fluid">
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!-- Js files -->
+	<!-- JavaScript -->
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<!-- Default-JavaScript-File -->
+
+	<!-- Banner Responsiveslides -->
+	<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider3").responsiveSlides({
+				auto: true,
+				pager: true,
+				nav: false,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+
+		});
+	</script>
+	<!-- // Banner Responsiveslides -->
+
+	<!-- progresscircle -->
+	<script src="{% static 'js/progresscircle.js' %}"></script>
+	<script>
+		$('.circlechart').circlechart(); // Initialization
+	</script>
+	<!-- //progresscircle -->
+
+	<!-- smooth scrolling -->
+	<script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+	<!-- move-top -->
+	<script src="{% static 'js/move-top.js' %}"></script>
+	<!-- easing -->
+	<script src="{% static 'js/easing.js' %}"></script>
+	<!--  necessary snippets for few javascript files -->
+	<script src="{% static 'js/cleaning.js' %}"></script>
+
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+	<!-- Necessary-JavaScript-File-For-Bootstrap -->
+
+	<!-- //Js files -->
+	{% block js %}{% endblock %}
+</body>
+
+</html>

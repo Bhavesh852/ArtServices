@@ -1,0 +1,89 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+	h5{
+		font-size: 15px;
+	}
+	p{
+		display: inline;
+	}
+</style>
+{% endblock %}
+
+{% block body %}
+	<div class="banner2-w3ls">
+
+	</div>
+
+	<div class="breadcrumb-agile">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/services/">Services</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Gallery</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="modal fade" id="book">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            	<div class="modal-header">
+                	<h4 class="modal-title">Enter Your Details :)</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                	<form action="/booking/{{s.a_id}}/" method="POST" enctype="multipart/form-data">
+                    	{% csrf_token %}
+                        <div class="form-group">
+                        	<label>Name :</label>
+                        	<input type="text" class="form-control" name="uname" placeholder="Your Full Name" required> 
+                        </div>
+                        <div class="form-group">
+                        	<label>Address :</label>
+                        	<input type="text" class="form-control" name="uadd" placeholder="Your Address" required> 
+                        </div>
+                        <div class="form-group">
+                        	<label>Contact :</label>
+                        	<input type="number" class="form-control" name="ucontact" placeholder="Your Contact Number" required> 
+                        </div>
+                        <div class="form-group">
+                        	<label>Date of Service :</label>
+                        	<input type="Date" id="d" class="form-control" name="udate" placeholder="Date Of Service" required> 
+                        </div>
+                        <button type="submit" class="btn btn-info">Place Booking</button>
+                    </form>                                                
+                </div>
+            </div>
+        </div>
+    </div>
+	<section class="news-w3ls py-5">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="row package-grids mt-5">
+				<div class="col-md-8 posts-w3ls mt-md-0 mt-4">
+					<h2 class="text-danger"><u>{{s.a_name}}</u></h2>
+					<p>The {{s.a_service}} Services</p>
+					<h5>Price :</h5> <p><i class="fas fa-rupee-sign mr-2 text-danger">{{s.a_price}} /- Per {{s.a_service.service}}</i></p>
+					<h5>Phone :</h5> <p>{{s.a_phone}}</p>
+					<h5>Address :</h5> <p>{{s.a_address}}</p>
+					<h5>Description :</h5> <p>{{s.a_description}}</p>
+					<h5>Terms & Condition :</h5> <p>{{s.a_condition}}</p>
+					<br><br>
+					<button data-toggle="modal" data-target="#book" type="submit"  class="btn btn-info">
+                    	BOOK <i class="fa fa-lock" aria-hidden="true"></i>
+                    </button>
+					<p class="text-primary">NOTE : You can book our services on call also <output>{{s.a_phone}}</output></p>
+				</div>
+				<div class="col-md-4 posts-w3ls mt-md-0 mt-4">
+					<div class="price-top">
+						<p>Recent Work:</p>
+						<img src="{{s.a_recentwork.url}}" class="img-fluid" style="height: 40vh;" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+	<div class="banner2-w3ls">
+
+	</div>
+
+	<div class="breadcrumb-agile">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="/services/">Services</a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">Gallery</li>
+				</ol>
+			</nav>
+		</div>
+	<section class="news-w3ls py-5">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="row package-grids mt-5">
+				{% for i in subservice %}
+				<div class="col-md-4 posts-w3ls mt-md-0 mt-4">
+					<div class="price-top">
+						<img src="{{i.a_recentwork.url}}" class="img-fluid" style="height: 40vh;" />
+					</div>
+					<div class="post-w3ls-bottom p-4 text-center">
+						<h4 class="text-dark mb-3 mt-4">{{i.a_name}} </h4>
+						<ul class="list-unstyled">
+							<li class="mr-2">
+								<a href="single.html">
+									<i class="fas fa-rupee-sign mr-2"></i>{{i.a_price}} /- Per {{i.a_service.service}}</a>
+							</li><!-- 
+							<li class="mr-2">
+								<a href="single.html">
+									<i class="fas fa-star mr-2"></i>4.2 Rating</a>
+							</li>
+							<li>
+								<a href="single.html">
+									<i class="fas fa-user mr-2"></i>200 bookings</a>
+							</li> -->
+						</ul>
+						<br>
+						<a href="/checkout/{{i.a_id}}/" class="btn btn-primary text-light">Check Out</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}
